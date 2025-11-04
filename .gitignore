@@ -1,0 +1,13 @@
+# Build
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/compile_commands.json
+
+# VS Code
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
