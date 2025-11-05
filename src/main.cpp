@@ -2,10 +2,8 @@
 #include <iostream>
 #include <utility>
 
-static volatile int* g_leak_sink = nullptr;
-
 int main() {
-    std::cout << "=== Un mic demo pt. (2)-(6) ===\n";
+    std::cout << "=== Demo pentru (2)-(6) ===\n";
 
     DigitalWallet w1("Andreea");
     w1.addTransaction(+100);
@@ -37,9 +35,5 @@ int main() {
     std::cout << "\nw1 dupa mai multe adduri -> "; w1.print();
 
     std::cout << "\n=== Sfarsitul demo-ului ===\n";
-
-    //g_leak_sink = new int[10]; 
-    //g_leak_sink[0] = 42;       
-
     return 0;
 }
