@@ -1,11 +1,27 @@
 cmake_minimum_required(VERSION 3.16)
-project(paoo_lab LANGUAGES CXX)
+project(DigitalWalletDemo LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_executable(paoo_lab
+add_executable(wallet
     src/main.cpp
+    src/DigitalWallet.cpp
 )
 
-target_include_directories(paoo_lab PRIVATE include)
+target_include_directories(wallet PRIVATE include)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+  target_compile_options(wallet PRIVATE -Wall -Wextra -Wpedantic)
+  if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_compile_options(wallet PRIVATE -fsanitize=address,undefined)
+    target_link_options(wallet PRIVATE -fsanitize=address,undefined)
+  endif()
+endif()
+
+add_custom_target(run
+  COMMAND wallet
+  DEPENDS wallet
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+)

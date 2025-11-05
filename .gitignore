@@ -1,13 +1,14 @@
-# Build
 /build/
 /CMakeFiles/
 /CMakeCache.txt
 /cmake_install.cmake
+/Makefile
+/.ninja_deps
+/.ninja_log
 /compile_commands.json
 
-# VS Code
 .vscode/
+.idea/
 
-# OS junk
 .DS_Store
 Thumbs.db
