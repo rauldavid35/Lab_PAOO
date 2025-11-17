@@ -16,9 +16,10 @@ char* DigitalWallet::duplicateCString(const char* s) { return safeDup(s); } //re
 
 void DigitalWallet::ensureCapacity(std::size_t minCapacity) { //functie folosita pentru alocare de spatiu un plus
     if (capacity_ >= minCapacity) return;
-    std::size_t newCap = 1 ;
-    if(capacity_)
-        std::size_t newCap=capacity_;
+    //std::size_t newCap = 1 ;
+    //if(capacity_)
+    //    std::size_t newCap=capacity_;      <----BUG , redeclaram newcap in loc sa dau assign
+    std::size_t newCap = capacity_ ? capacity_ : 1; //corect , acum nu mai declar o variabila locala noua , ci doar creez si dau assign
     while (newCap < minCapacity) 
         newCap *= 2;
     int* newData = new int[newCap];            
