@@ -12,12 +12,14 @@ add_executable(wallet
 
 target_include_directories(wallet PRIVATE include)
 
+set_target_properties(wallet PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
+
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
   target_compile_options(wallet PRIVATE -Wall -Wextra -Wpedantic)
-  if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    target_compile_options(wallet PRIVATE -fsanitize=address,undefined)
-    target_link_options(wallet PRIVATE -fsanitize=address,undefined)
-  endif()
+  #if(CMAKE_BUILD_TYPE STREQUAL "Debug") #ptdebug sa mearga cu sanatize
+  #  target_compile_options(wallet PRIVATE -fsanitize=address,undefined)
+  #  target_link_options(wallet PRIVATE -fsanitize=address,undefined)
+  #endif()
 endif()
 
 add_custom_target(run
