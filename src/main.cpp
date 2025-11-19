@@ -2,8 +2,9 @@
 #include <iostream>                     
 #include <utility>                      
 
-int main() {                           
-    std::cout << "=== Demo pentru (2)-(6) ===\n";
+int main() {          
+    std::cout << "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n" ;                
+    std::cout << "=== Demo pentru (2)-(6) [TEMA 1 + ASSIGN-URI] ===\n";
 
     DigitalWallet w1("Andre");       
     w1.addTransaction(+100);            
@@ -46,5 +47,37 @@ int main() {
     w1.print();                          
 
     std::cout << "\n=== Sfarsitul demo-ului ===\n";
+
+    std::cout << "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n" ;
+
+    std::cout << "\n=== Test chain-assignment ===\n";
+    DigitalWallet c1("Chain1");
+    c1.addTransaction(1);
+    DigitalWallet c2("Chain2");
+    c2.addTransaction(2);
+    DigitalWallet c3("Chain3");
+    c3.addTransaction(3);
+
+    // aici se foloseste faptul ca operator= intoarce DigitalWallet&
+    c1 = c2 = c3;
+
+    std::cout << "c1 -> "; c1.print();
+    std::cout << "c2 -> "; c2.print();
+    std::cout << "c3 -> "; c3.print();
+
+    std::cout << "\n=== Sfarsit demo chain-assignment ===\n";
+
+    std::cout << "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n" ;
+
+    std::cout << "\n=== Test self-assignment ===\n";
+    w1.print();
+    w1 = w1;            // aici vezi în output că nu se strică nimic
+    std::cout << "w1 dupa self-assign -> ";
+    w1.print();
+
+    std::cout << "\n=== Sfarsit demo self-assignment ===\n";
+
+    std::cout << "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n" ;
+
     return 0;                           
 }
