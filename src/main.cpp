@@ -6,7 +6,7 @@ int main() {
     std::cout << "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n" ;                
     std::cout << "=== Demo pentru (2)-(6) [TEMA 1 + ASSIGN-URI] ===\n";
 
-    DigitalWallet w1("Andre");       
+    DigitalWallet w1("Andreea");       
     w1.addTransaction(+100);            
     w1.addTransaction(-30);
     w1.addTransaction(+50);
